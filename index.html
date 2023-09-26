@@ -1,64 +1,508 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faizan's Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="hero">
-        <nav>
-        
-                <img src="images/logo.png" class="logo">
-          
-            <ul>
-                <li> <a href="">HOME</a></li>
-  
-                <li> <a href="../musicplayer/musicplayer.html">MUSIC PLAYER</a></li>
-                <li> <a href="../Weather app/HTML/weather.html">WEATHER APP</a></li>
-                <li> <a href="../Clock/HTML/clock.html">CLOCK</a></li>    
-                <li> <a href="../WORLDTOUR/html/worldtour.html">CLOTHING WEBSITE</a></li>    
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <!--=============== FAVICON ===============-->
+      <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+      <!--=============== REMIXICONS ===============-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.4.0/remixicon.css" crossorigin="">
+
+      <!--=============== CSS ===============-->
+      <link rel="stylesheet" href="assets/css/styles.css">
+
+      <title>Faizan's Portfolio</title>
+   </head>
+   <body>
+      <!--==================== HEADER ====================-->
+      <header class="header" id="header">
+         <nav class="nav container">
+            <a href="#" class="nav__logo">
+               <span class="nav__logo-circle">F</span>
+
+               <span class="nav__logo-name">Faizan Dhankwala</span>
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+               <span class="nav__title">Menu</span>
+
+               <h3 class="nav__name">Rian</h3>
+
+               <ul class="nav__list">
+                  <li class="nav__item">
+                     <a href="#home" class="nav__link active-link">Home</a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="#about" class="nav__link">About Me</a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="#projects" class="nav__link">Projects</a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="#contact" class="nav__link nav__link-button">Contact Me</a>
+                  </li>
+               </ul>
+
+               <!-- Close button -->
+               <div class="nav__close" id="nav-close">
+                  <i class="ri-close-line"></i>
+               </div>
+            </div>
+
+            <div class="nav__buttons">
+               <!-- Theme button -->
+               <i class="ri-moon-line change-theme" id="theme-button"></i>
+
+               <!-- Toggle button -->
+               <div class="nav__toggle" id="nav-toggle">
+                  <i class="ri-menu-4-line"></i>
+               </div>
+            </div>
+         </nav>
+      </header>
+
+      <!--==================== MAIN ====================-->
+      <main class="main">
+         <!--==================== HOME ====================-->
+         <section class="home section" id="home">
+            <div class="home__container container grid">
+               <h1 class="home__name">
+                Faizan Dhankwala
+               </h1>
+
+               <div class="home__perfil">
+                  <div class="home__image">
+                     <img src="assets/img/coolpjone.JPG" alt="image" class="home__img">
+                     <div class="home__shadow"></div>
+
+                     <img src="assets/img/curved-arrow.svg" alt="" class="home__arrow">
+                     <img src="assets/img/random-lines.svg" alt="" class="home__line">
+
+                     <div class="geometric-box"></div>
+                  </div>
+
+                  <div class="home__social">
+                     <a href="https://www.instagram.com/faizandhankwala/" target="_blank" class="home__social-link">
+                        <i class="ri-instagram-line"></i>
+                     </a>
+
+                     <a href="https://www.linkedin.com/in/faizan-dhankwala-6a2a3b195/" target="_blank" class="home__social-link">
+                        <i class="ri-linkedin-box-line"></i>
+                     </a>
+
+                     <a href="https://github.com/FaizanDhankwala/" target="_blank" class="home__social-link">
+                        <i class="ri-github-line"></i>
+                     </a>
+                  </div>
+               </div>
+
+               <div class="home__info">
+                  <p class="home__description">
+                     <b>Project Manager and Web Developer</b>, with extra knowledge in C++, Java, and Python, I combine technical practices to excel in project management.
+                  </p>
+                  
+                  <a href="#about" class="home__scroll">
+                     <div class="home__scroll-box">
+                        <i class="ri-arrow-down-s-line"></i>
+                     </div>
+                     
+                     <span class="home__scroll-text">Scroll Down</span>
+                  </a>
+               </div>
+            </div>
+         </section>
+
+         <!--==================== ABOUT ====================-->
+         <section class="about section" id="about">
+            <div class="about__container container grid">
+               <h2 class="section__title-1">
+                  <span>About Me.</span>
+               </h2>
+
+               <div class="about__perfil">
+                  <div class="about__image">
+                     <img src="assets/img/secondone.jpg" alt="image" class="about__img">
+
+                     <div class="about__shadow"></div>
+
+                     <div class="geometric-box"></div>
+                     <img src="assets/img/random-lines.svg" alt="" class="about__line">
+                     <div class="about__box"></div>
+                  </div>
+               </div>
+
+               <div class="about__info">
+                  <p class="about__description">
+                     Passionate about  <b>coordinating teams,</b> optimizing resources, and ensuring the successful completion of projects, all while <b>driving</b> organizational growth and innovation.
+                  </p>
+
+                  <ul class="about__list">
+                     <li class="about__item">
+                        <b>My Skills Are:</b> Project/Product Management, HTML, CSS, JavaScript, 
+                        React, Git & GitHub, Bootstrap, Java, C++, and Adobe Suite.
+                     </li>
+                  </ul>
+
+                  <div class="about__buttons">
+                     <a href="#contact" class="button">
+                        <i class="ri-send-plane-line"></i> Contact Me
+                     </a>
+
+                     <a href="https://www.linkedin.com/in/faizan-dhankwala-6a2a3b195/" target="_blank" class="button__ghost">
+                        <i class="ri-linkedin-box-line"></i>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         <!--==================== SERVICES ====================-->
+         <section class="services section">
+            <h2 class="section__title-2">
+               <span>Strengths</span>
+            </h2>
+
+            <div class="services__container container grid">
+               <article class="services__card">
+                  <div class="services__border"></div>
+
+                  <div class="services__content">
+                     <div class="services__icon">
+                        <div class="services__box"></div>
+                        <i class="ri-survey-fill"></i>
+                     </div>
+   
+                     <h2 class="services__title">Program Management</h2>
+   
+                     <p class="services__description">
+                        Certified program management with 3+ years of experience, consistently delivering complex projects on time and within budget, while fostering a culture of collaboration and excellence among cross-functional teams.
+                     </p>
+                  </div>
+               </article>
+
+               <article class="services__card">
+                  <div class="services__border"></div>
+
+                  <div class="services__content">
+                     <div class="services__icon">
+                        <div class="services__box"></div>
+                        <i class="ri-code-box-line"></i>
+                     </div>
+   
+                     <h2 class="services__title">Technical Development</h2>
+   
+                     <p class="services__description">
+                        5+ years of web/backend development, with a proven track record of architecting and implementing scalable, efficient, and secure solutions that enhance user experiences and drive business success.                     </p>
+                  </div>
+               </article>
+
+               <article class="services__card">
+                  <div class="services__border"></div>
+
+                  <div class="services__content">
+                     <div class="services__icon">
+                        <div class="services__box"></div>
+                        <i class="ri-paint-brush-line"></i>
+                     </div>
+   
+                     <h2 class="services__title">UI/Graphic Design</h2>
+   
+                     <p class="services__description">
+                      
+UI/Graphic designer with artistic expertise and over 5 years of experience, dedicated to crafting visually captivating and user-centric designs that not only engage audiences but also contribute significantly to brand elevation and business success.
+                     </p>
+                  </div>
+               </article>
+            </div>
+         </section>
+
+         <!--==================== PROJECTS ====================-->
+         <section class="projects section" id="projects">
+            <h2 class="section__title-1">
+               <span>Personal Projects.</span>
+            </h2>
+
+            <div class="projects__container container grid">
+               <article class="projects__card">
+                  <div class="projects__image">
+                     <img src="assets/img/musicplayer.PNG" alt="image" class="projects__img">
+
+                     <a href="C:\Users\faizan\Documents\code\musicplayer\musicplayer.html" class="projects__button button">
+                        <i class="ri-arrow-right-up-line"></i>
+                     </a>
+                  </div>
+
+                  <div class="projects__content">
+                     <h3 class="projects__subtitle">
+                     App
+                     </h3>
+                     <h2 class="projects__title">
+                        Interactive Music Player</h2>
+
+                     <p class="projects__description">
+                     A dynamic HTML/CSS/JavaScript built music player with an interactive interface. This innovative music player is designed to elevate your music listening experience to new heights. With a sleek and modern design, it not only plays your favorite tunes but also engages you in a visually captivating way.
+
+                        Key features include:
+                        
+                        Responsive Design: This music player is fully responsive, ensuring seamless playback across various devices, from desktops to mobile phones.
+                        
+                        Interactive Interface: The interface comes alive as you interact with it. Visual feedback such as animations and transitions respond to your commands, making your interaction with the player a delightful experience.
+
+                        Visualizations: Enjoy mesmerizing visualizations that synchronize with the music, adding a captivating dimension to your listening experience.
+
+
+                        Audio Controls: Standard audio controls such as play, pause, skip, and volume adjustment are readily available. You can also fine-tune your listening experience with equalizer settings.
+
+                        Performance: It's optimized for speed and efficiency, so your music loads quickly and plays without interruptions.
+
+
+                     </p>
+                  </div>
+
+                  <div class="projects__buttons">
+                     <a href="https://github.com/" target="_blank" class="projects__link">
+                        <i class="ri-github-line"></i> View
+                     </a>
+
+                
+                  </div>
+               </article>
+
+               <article class="projects__card">
+                  <div class="projects__image">
+                     <img src="assets/img/weatherapp.PNG" alt="image" class="projects__img">
+
+                     <a href="C:\Users\faizan\Documents\code\Weather app\HTML\weather.html" class="projects__button button">
+                        <i class="ri-arrow-right-up-line"></i>
+                     </a>
+                  </div>
+
+                  <div class="projects__content">
+                     <h3 class="projects__subtitle">App</h3>
+                     <h2 class="projects__title">WeatherApp</h2>
+
+                     <p class="projects__description">
+                        A cutting-edge weather application built with HTML, CSS, and JavaScript that empowers you to access real-time weather information for any city across the globe. This sleek and user-friendly weather app goes beyond just providing forecasts; it offers an immersive and interactive experience to keep you informed and prepared for any weather conditions.
+
+                        Key Features:
+                        
+                        Global Coverage: This weather app offers worldwide coverage, allowing you to check the current weather in any city, town, or village across the planet.
+                        
+                        User-Friendly Interface: With a clean and intuitive design, this app ensures that accessing weather information is a breeze. Simply enter the city name, and the app will do the rest.
+                        
+                        Real-Time Updates: Stay up to date with the latest weather conditions as the app provides real-time updates, including temperature, humidity, wind speed, and more.
+                        
+                        Cross-Platform Compatibility: Access the app on various devices and browsers, ensuring you can check the weather no matter where you are.
+                     </p>
+                  </div>
+
+                  <div class="projects__buttons">
+                     <a href="https://github.com/" target="_blank" class="projects__link">
+                        <i class="ri-github-line"></i> View
+                     </a>
+
+                  
+                  </div>
+               </article>
+
+               <article class="projects__card">
+                  <div class="projects__image">
+                     <img src="assets/img/clock.PNG" alt="image" class="projects__img">
+
+                     <a href="C:\Users\faizan\Documents\code\Clock\HTML\clock.html" class="projects__button button">
+                        <i class="ri-arrow-right-up-line"></i>
+                     </a>
+                  </div>
+
+                  <div class="projects__content">
+                     <h3 class="projects__subtitle">Website</h3>
+                     <h2 class="projects__title">Aesthetic Clock</h2>
+
+                     <p class="projects__description">
+                        a minimalist, aesthetically pleasing clock created with HTML, CSS, and JavaScript. This elegant clock combines simplicity and style to offer you a delightful and functional time-telling experience.
+
+                        Key Features:
+                        
+                        Clean and Elegant Design: Our clock features a beautifully crafted interface with a focus on simplicity. The sleek design ensures that it complements any setting, whether it's on your desktop or as part of a web page.
+                        
+                        Accurate Timekeeping: The clock provides precise, real-time updates to keep you in sync with the current time, ensuring you never miss a beat.
+
+                        Lightweight and Fast: The clock is designed for efficiency, ensuring it doesn't slow down your website or consume excessive system resources.
+                     </p>
+                  </div>
+
+                  <div class="projects__buttons">
+                     <a href="https://github.com/" target="_blank" class="projects__link">
+                        <i class="ri-github-line"></i> View
+                     </a>
+
+                   
+                  </div>
+               </article>
+
+               <article class="projects__card">
+                  <div class="projects__image">
+                     <img src="assets/img/clothing.PNG"  alt="image" class="projects__img">
+
+                     <a href="C:\Users\faizan\Documents\code\WORLDTOUR\html\worldtour.html" class="projects__button button">
+                        <i class="ri-arrow-right-up-line"></i>
+                     </a>
+                  </div>
+
+                  <div class="projects__content">
+                     <h3 class="projects__subtitle">Website</h3>
+                     <h2 class="projects__title">Streetwear Clothing Website</h2>
+
+                     <p class="projects__description">
+                        A mockup clothing website created by experimenting with layout using the power of Bootstrap, HTML, and CSS. Please note that this website is for practice and layout experimentation only, and no actual orders can be placed.
+
+                        Key Features:
+                        
+                        Bootstrap-Powered Responsiveness: Our website is built on Bootstrap, ensuring a fully responsive experience. Whether you're on a desktop, tablet, or smartphone, the website adapts seamlessly to your screen size.
+
+                        Fashion Gallery: Explore the Fashion Gallery, where you can find stunning images of models/cars showcasing style and culture. This gallery was built on bootstrap.
+
+                        
+                     </p>
+                  </div>
+
+                  <div class="projects__buttons">
+                     <a href="https://github.com/" target="_blank" class="projects__link">
+                        <i class="ri-github-line"></i> View
+                     </a>
+
+                   
+                  </div>
+               </article>
+
+               
+                  </div>
+               </article>
+            </div>
+         </section>
+
+         <!--==================== CONTACT ====================-->
+         <section class="contact section" id="contact">
+            <div class="contact__container grid">
+               <div class="contact__data">
+                  <h2 class="section__title-2">
+                     <span>Contact Me.</span>
+                  </h2>
+
+                  <p class="contact__description-1">
+                     Feel free to reach out and send me a message anytime.
+                  </p>
+
+                  <p class="contact__description-2">
+                
+                  </p>
+
+                  <div class="geometric-box"></div>
+               </div>
+
+               <div class="contact__mail">
+                  <h2 class="contact__title">
+                     Send Me A Message 
+                  </h2>
+
+                  <form action="" class="contact__form" id="contact-form">
+                     <div class="contact__group">
+                        <div class="contact__box">
+                           <input type="text" name="user_name" class="contact__input" id="name" required placeholder="First Name">
+                           <label for="name" class="contact__label">First Name</label>
+                        </div>
+   
+                        <div class="contact__box">
+                           <input type="email" name="user_email" class="contact__input" id="email" required placeholder="Email Address">
+                           <label for="email" class="contact__label">Email Address</label>
+                        </div>
+                     </div>
+                     
+                     <div class="contact__box">
+                        <input type="text" name="user_subject" class="contact__input" id="subject" required placeholder="Subject">
+                        <label for="subject" class="contact__label">Subject</label>
+                     </div>
+
+                     <div class="contact__box contact__area">
+                        <textarea name="user_message" class="contact__input" id="message" required placeholder="Message"></textarea>
+                        <label for="message" class="contact__label">Message</label>
+                     </div>
+
+                     <p class="contact__message" id="contact-message"></p>
+
+                     <button type="submit" class="contact__button button">
+                        <i class="ri-send-plane-line"></i> Send Message
+                     </button>
+                  </form>
+               </div>
+
+               <div class="contact__social">
+                  <img src="assets/img/curved-arrow.svg" alt="" class="contact__social-arrow">
+
+                  <div class="contact__social-data">
+                     <div>
+                        <p class="contact__social-description-1">
+                        
+                        </p>
+   
+                        <p class="contact__social-description-2">
+                           Contact me on my linkedin!
+                        </p>
+                     </div>
+
+                     <div class="contact__social-links">
+                    
+                        <a href="https://www.linkedin.com/in/faizan-dhankwala-6a2a3b195/" class="contact__social-link" target="_blank">
+                           <i class="ri-linkedin-box-line"></i>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+      </main>
+
+      <!--==================== FOOTER ====================-->
+      <footer class="footer">
+         <div class="footer__container container grid">
+            <ul class="footer__links">
+               <li>
+                  <a href="#home" class="footer__link">Home</a>
+               </li>
+
+               <li>
+                  <a href="#about" class="footer__link">About</a>
+               </li>
+
+               <li>
+                  <a href="#projects" class="footer__link">Projects</a>
+               </li>
             </ul>
-        </nav>
-     
-        <div class="detail">
-<h1>Hi. I'm Faizan <span>Dhankwala</span></h1>
-<p>Welcome to my Portfolio <br> To view projects, visit links in upper right!</p>
-<br>
-    <br>
-<p>Hi! My name is Faizan Dhankwala and I like computer science as well as managing projects!
-    <br> Below are some technical projects with detailed discriptions on how I made them!</p>
 
-<br>
- <div class="paragraphs">
-<p><span>1. Music Player with Advanced JavaScript:</span>
-  The development journey of the  music player was one I will not forget. First and foremost, I concentrated on crafting an engaging user interface (UI) to ensure an enjoyable user experience. Then, I dove into the world of JavaScript to build the core functionality. I leveraged advanced JavaScript techniques to enable song selection, volume control, and real-time song duration tracking. Implementing an event-driven architecture was crucial to synchronizing the UI elements with the currently playing song. To enhance the user experience, I worked on incorporating dynamic theme changes and background adaptations based on the song's mood and genre. Throughout the project, iterative testing and debugging were my constant companions to guarantee the player's flawless operation.
-    <br>
-    <br>
-    <span>2. Weather App for Global Cities:</span>
-    My journey to create a weather app with global coverage was an exciting one. First, I meticulously designed the app's user interface, ensuring it was intuitive and responsive. I then delved into the integration of multiple APIs and a robust database. The goal was to empower users to fetch weather data from any city in the world. I tapped into geolocation and mapping APIs to enable seamless city searching. Real-time weather data from various sources was collected and elegantly displayed, making use of user-friendly graphics. To ensure precise forecasts, I implemented complex data aggregation and processing algorithms. The app also featured hourly and extended forecasts, as well as weather alerts. Rigorous testing was conducted to verify its performance across diverse locations and weather conditions.
-    <br>
-    <br>
-   <span>3. Real-Time Visually Appealing Clock:</span> 
-    Creating a visually captivating real-time clock was an intriguing challenge. I started by crafting an aesthetically pleasing clock face using HTML and CSS, focusing on typography and color schemes. JavaScript played a pivotal role in generating the ticking effect and ensuring the clock displayed the current time accurately. Real-time synchronization was achieved through regular updates to the clock's hands and digits. To elevate the visual appeal, I introduced transitions and animations, resulting in a smooth and eye-catching user experience. Extensive cross-browser compatibility testing was essential to ensure the clock functioned seamlessly on various platforms.
-    <br>
-    <br>
-   <span>4. Demo Mockup Clothing Website with Bootstrap and Advanced CSS:</span>
-    The journey of creating a demo mockup clothing website that closely resembled a real e-commerce store was both challenging and rewarding. I began by structuring the website layout using HTML and Bootstrap to ensure responsiveness. Then, I dived into advanced CSS techniques to design an appealing aesthetic, including custom fonts, engaging hover effects, and elegant image transitions. To mimic genuine e-commerce functionality, I implemented product listings and filtering options. The website also featured a shopping cart with a simulated checkout process. Hours were dedicated to fine-tuning the layout and styles to replicate the genuine clothing shopping experience, and thorough testing was conducted to ensure a seamless user journey.</p>
-</div>
-<a href="Resume 2023.pdf">VIEW RESUME</a>
-        </div>
-          <div class="images"> 
-            <img src="Images/splash.png" class="shape">
-            <img src="Images/mann.png" class="man">
-          </div> 
+            <span class="footer__copy">
+               &#169; Faizan Dhankwala <b>All Rights Reserved  </b>
+          
+            </span>
+         </div>
+      </footer>
 
+      <!--========== SCROLL UP ==========-->
+      <a href="#" class="scrollup" id="scroll-up">
+         <i class="ri-arrow-up-s-line"></i>
+      </a>
 
-
+      <!--=============== SCROLLREVEAL ===============-->
+      <script src="assets/js/scrollreveal.min.js"></script>
       
-    
-    
+      <!--=============== EMAIL JS ===============-->
+      <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
-</body>
+      <!--=============== MAIN JS ===============-->
+      <script src="assets/js/main.js"></script>
+   </body>
 </html>
