@@ -7,7 +7,7 @@
 
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
-  --first-color: hsl(14, 98%, 50%);
+  --first-color: hsl(225, 73%, 57%); /* Royal blue instead of orange */
   --black-color: hsl(0, 0%, 0%);
   --black-color-light: hsl(0, 0%, 40%);
   --white-color: hsl(0, 0%, 95%);
@@ -106,7 +106,7 @@ img {
 
 /*========== Variables Dark theme ==========*/
 body.dark-theme {
-  --first-color: hsl(14, 80%, 50%);
+  --first-color: hsl(225, 73%, 57%); /* Keep royal blue in dark mode */
   --black-color: hsl(0, 0%, 18%);
   --black-color-light: hsl(0, 0%, 30%);
   --title-color: hsl(0, 0%, 95%);
@@ -125,7 +125,7 @@ body.dark-theme {
 
 .dark-theme .section__title-1::after, 
 .dark-theme .section__title-2::after {
-  background-color: hsla(14, 70%, 50%, .2);
+  background-color: hsla(225, 73%, 57%, .2); /* Royal blue with transparency */
 }
 
 .dark-theme :is(.home__arrow, .home__line, .about__line) {
@@ -133,7 +133,7 @@ body.dark-theme {
 }
 
 .dark-theme .home__description b {
-  background: linear-gradient(90deg, hsla(14, 80%, 50%, .3), hsla(14, 80%, 50%, 0));
+  background: linear-gradient(90deg, hsla(225, 73%, 57%, .3), hsla(225, 73%, 57%, 0)); /* Royal blue gradient */
 }
 
 .dark-theme :is(.button__ghost, .services__icon i) {
@@ -196,7 +196,7 @@ body.dark-theme {
   content: "";
   width: 40px;
   height: 28px;
-  background-color: hsla(14, 98%, 50%, .2);
+  background-color: hsla(225, 73%, 57%, .2); /* Royal blue with transparency */
   position: absolute;
   top: -4px;
   right: -8px;
@@ -421,12 +421,15 @@ body.dark-theme {
   transition: background-color .4s; /* for dark mode */
 }
 
+/* Fixed positioning for decorative elements to prevent text overlap */
 .home__arrow, 
 .home__line {
   position: absolute;
   filter: invert(1);
   width: 50px;
   transition: filter .4s; /* for dark mode */
+  pointer-events: none; /* Prevent interaction */
+  z-index: 1; /* Lower z-index so they stay behind content */
 }
 
 .home__arrow {
@@ -482,8 +485,8 @@ body.dark-theme {
 
 .home__description b {
   background: linear-gradient(90deg, 
-            hsla(14, 98%, 50%, .3), 
-            hsla(14, 98%, 50%, 0));
+            hsla(225, 73%, 57%, .3), 
+            hsla(225, 73%, 57%, 0)); /* Royal blue gradient */
 }
 
 .home__scroll {
@@ -882,6 +885,7 @@ body.dark-theme {
 .contact__form {
   position: relative;
 }
+
 .contact__box {
   position: relative;
   width: 100%;
