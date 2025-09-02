@@ -162,6 +162,10 @@ body.dark-theme {
   background-color: hsl(0, 0%, 4%);
 }
 
+.dark-theme .nav__logo-name {
+  color: var(--white-color);
+}
+
 .dark-theme::-webkit-scrollbar {
   background-color: hsl(0, 0%, 20%);
 }
@@ -307,6 +311,12 @@ a, button, input, textarea, select, .swiper-button-prev, .swiper-button-next, .s
   align-items: center;
   font-weight: var(--font-semi-bold);
   color: var(--title-color);
+}
+
+.nav__logo-name {
+  color: var(--black-color);
+  font-weight: var(--font-bold);
+  transition: color .4s;
 }
 
 .nav__logo-circle, 
