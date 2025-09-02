@@ -23,16 +23,25 @@
       <div class="cursor-outer"></div>
       <div class="cursor-inner"></div>
       <!-- Parallax Shapes -->
-      <div class="parallax-container">
-         <div class="shape shape-1"></div>
-         <div class="shape shape-2"></div>
-         <div class="shape shape-3"></div>
-         <div class="shape shape-4"></div>
-         <div class="shape shape-5"></div>
-      </div>
+      <!-- Mouse Trail Effect -->
+   <div class="mouse-trail-container"></div>
       <!-- Spotify Player -->
       <div class="spotify-player" id="spotify-player">
-         <iframe src="https://open.spotify.com/embed/playlist/27gXLqirQ4T4cKMLJARrle" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+         <div class="player-container">
+            <div class="player-header">
+               <i class="ri-spotify-fill player-logo"></i>
+               <span class="player-title">Listen while you scroll</span>
+               <button class="player-close" id="player-close">
+                  <i class="ri-close-line"></i>
+               </button>
+            </div>
+            <iframe src="https://open.spotify.com/embed/album/3Gt7rOjcZQoHCfnKl5AkK7?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+         </div>
+      </div>
+      
+      <!-- Music Toggle Button -->
+      <div class="music-toggle" id="music-toggle">
+         <i class="ri-music-2-fill"></i>
       </div>
       
       <!-- Listen while you scroll note -->
@@ -200,94 +209,109 @@
             </div>
          </section>
 
-     <!--==================== EXPERIENCE & EDUCATION TIMELINE ====================-->
-<section class="timeline-section" id="timeline">
-  <h2 class="section__title-2">
-    <span>Experience & Education</span>
-  </h2>
+     <!--==================== EXPERIENCE & EDUCATION ====================-->
+<section class="experience-education-section" id="timeline">
+  <div class="container">
+    <!-- Education Section -->
+    <div class="education-section">
+      <h2 class="section__title-1">
+        <span>Education</span>
+      </h2>
+      <div class="cards-container grid">
+        <div class="experience-card" data-aos="fade-up">
+          <div class="card-header">
+            <div class="card-icon">
+              <img src="assets/img/logos/uwlogo.png" alt="UW" class="card-logo">
+            </div>
+            <div class="card-info">
+              <h3 class="card-title">University of Washington</h3>
+              <p class="card-subtitle">Master's, Cybersecurity</p>
+              <p class="card-date">Sept 2025 – Jun 2027 • GPA: 4.0</p>
+            </div>
+          </div>
+        </div>
 
-  <div class="timeline">
-    <!-- Education -->
-    <div class="timeline-item" data-aos="fade-up">
-      <div class="timeline-icon">
-        <img src="assets/img/logos/uwlogo.png" alt="UW">
-      </div>
-      <div class="timeline-content">
-        <h3>University of Washington</h3>
-        <p class="subtitle">Master's, Cybersecurity</p>
-        <p class="date">Sept 2025 – Jun 2027 • GPA: 4.0</p>
+        <div class="experience-card" data-aos="fade-up">
+          <div class="card-header">
+            <div class="card-icon">
+              <img src="assets/img/logos/uwlogo.png" alt="UW" class="card-logo">
+            </div>
+            <div class="card-info">
+              <h3 class="card-title">University of Washington</h3>
+              <p class="card-subtitle">Bachelor's, Applied Computing</p>
+              <p class="card-date">Sept 2021 – Jul 2025 • GPA: 3.7</p>
+              <p class="card-description">Relevant coursework: Data Structures and Algorithms, Intro to AI</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="timeline-item" data-aos="fade-up">
-      <div class="timeline-icon">
-        <img src="assets/img/logos/uwlogo.png" alt="UW">
-      </div>
-      <div class="timeline-content">
-        <h3>University of Washington</h3>
-        <p class="subtitle">Bachelor's, Applied Computing</p>
-        <p class="date">Sept 2021 – Jul 2025 • GPA: 3.7</p>
-        <p class="description">Relevant coursework: Data Structures and Algorithms, Intro to AI</p>
+    <!-- Work Experience Section -->
+    <div class="work-experience-section">
+      <h2 class="section__title-1">
+        <span>Work Experience</span>
+      </h2>
+      <div class="cards-container grid">
+        <div class="experience-card" data-aos="fade-up">
+          <div class="card-header">
+            <div class="card-icon">
+              <img src="assets/img/logos/Airbus-Symbol.png" alt="Airbus" class="card-logo">
+            </div>
+            <div class="card-info">
+              <h3 class="card-title">Airbus</h3>
+              <p class="card-subtitle">Data Analyst Intern</p>
+              <p class="card-date">May 2025 – August 2025 • Mobile, AL</p>
+            </div>
+          </div>
+          <div class="card-content">
+            <ul class="card-achievements">
+              <li>Automated the entire system for reporting broken drills used in aircraft manufacturing for the A320 and A220 programs by implementing Google Scripts, replacing a manual process used by over 50 employees across two production lines.</li>
+              <li>Developed and integrated Google Sheets and Forms to streamline data collection from employees, increasing reporting speed by 8x and improving accuracy by over 90%.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="experience-card" data-aos="fade-up">
+          <div class="card-header">
+            <div class="card-icon">
+              <img src="assets/img/logos/lavner.PNG" alt="Lavner" class="card-logo">
+            </div>
+            <div class="card-info">
+              <h3 class="card-title">Lavner Education</h3>
+              <p class="card-subtitle">Software Engineering Intern</p>
+              <p class="card-date">Jun 2024 – Aug 2024 • Seattle, WA</p>
+            </div>
+          </div>
+          <div class="card-content">
+            <ul class="card-achievements">
+              <li>Designed 5+ hands-on labs covering microcontroller programming, real-time sensor data processing, and hardware-software integration with Arduino and Raspberry Pi.</li>
+              <li>Implemented automated testing procedures using Python test frameworks to verify performance improvements, resulting in 25% faster page load speeds.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="experience-card" data-aos="fade-up">
+          <div class="card-header">
+            <div class="card-icon">
+              <img src="assets/img/logos/boeing.jpg" alt="Boeing" class="card-logo">
+            </div>
+            <div class="card-info">
+              <h3 class="card-title">The Boeing Company</h3>
+              <p class="card-subtitle">Software Engineering Intern</p>
+              <p class="card-date">Aug 2021 – Jan 2022 • Redmond, WA</p>
+            </div>
+          </div>
+          <div class="card-content">
+            <ul class="card-achievements">
+              <li>Developed and optimized Spring Boot microservices to automate SAP queries, reducing manual data retrieval time by 30% and streamlining purchase order creation.</li>
+              <li>Integrated RESTful APIs with SAP systems, enhancing data flow and enabling real-time tracking of 200+ purchase orders.</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
-
-    <!-- Airbus -->
-    <div class="timeline-item" data-aos="fade-up">
-      <div class="timeline-icon">
-        <img src="assets/img/logos/Airbus-Symbol.png" alt="Airbus">
-      </div>
-      <div class="timeline-content">
-        <h3>Airbus</h3>
-        <p class="subtitle">Data Science Intern</p>
-        <p class="date">May 2025 – August 2025 • Mobile, AL</p>
-        <ul>
-          <li>Automated the entire system for reporting broken drills used in aircraft manufacturing for the A320 and A220 programs by
-implementing Google Scripts, replacing a manual process used by over 50 employees across two production lines.
-
-</li>
-          <li>Developed and integrated Google Sheets and Forms to streamline data collection from employees, increasing reporting speed by
-8x and improving accuracy by over 90%.</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Lavner -->
-    <div class="timeline-item" data-aos="fade-up">
-      <div class="timeline-icon">
-        <img src="assets/img/logos/lavner.PNG" alt="Lavner">
-      </div>
-      <div class="timeline-content">
-        <h3>Lavner Education</h3>
-        <p class="subtitle">Software Engineering Intern</p>
-        <p class="date">Jun 2024 – Aug 2024 • Seattle, WA</p>
-        <ul>
-          <li> Designed 5+ hands-on labs covering microcontroller programming, real-time sensor data processing, and hardware-software
-integration with Arduino and Raspberry Pi.</li>
-          <li>Implemented automated testing procedures using Python test frameworks to verify performance improvements, resulting in 25%
-faster page load speeds</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Boeing -->
-    <div class="timeline-item" data-aos="fade-up">
-      <div class="timeline-icon">
-        <img src="assets/img/logos/boeing.jpg" alt="Boeing">
-      </div>
-      <div class="timeline-content">
-        <h3>The Boeing Company</h3>
-        <p class="subtitle">Software Engineering Intern</p>
-        <p class="date">Aug 2021 – Jan 2022 • Redmond, WA</p>
-        <ul>
-          <li>Developed and optimized Spring Boot microservices to automate SAP queries, reducing manual data retrieval time by 30% and
-streamlining purchase order creation</li>
-          <li>• Integrated RESTful APIs with SAP systems, enhancing data flow and enabling real-time tracking of 200+ purchase orders. </li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Ekko.AI -->
-  
+  </div>
 </section>
 
 

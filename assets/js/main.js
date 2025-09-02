@@ -87,19 +87,39 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Add hover effect on interactive elements
-    const interactiveElements = document.querySelectorAll('a, button, input, textarea, select, .swiper-button-prev, .swiper-button-next, .swiper-pagination');
+    function addCursorEffects() {
+        const interactiveElements = document.querySelectorAll('a, button, input, textarea, select, .swiper-button-prev, .swiper-button-next, .swiper-pagination, .music-toggle');
+        
+        interactiveElements.forEach(element => {
+            // Remove existing listeners to avoid duplicates
+            element.removeEventListener('mouseenter', handleMouseEnter);
+            element.removeEventListener('mouseleave', handleMouseLeave);
+            
+            element.addEventListener('mouseenter', handleMouseEnter);
+            element.addEventListener('mouseleave', handleMouseLeave);
+        });
+    }
     
-    interactiveElements.forEach(element => {
-        element.addEventListener('mouseenter', () => {
+    function handleMouseEnter() {
+        if (cursorOuter && cursorInner) {
             cursorOuter.style.transform = 'translate(-50%, -50%) scale(1.5)';
             cursorInner.style.transform = 'translate(-50%, -50%) scale(0.5)';
-        });
-        
-        element.addEventListener('mouseleave', () => {
+        }
+    }
+    
+    function handleMouseLeave() {
+        if (cursorOuter && cursorInner) {
             cursorOuter.style.transform = 'translate(-50%, -50%) scale(1)';
             cursorInner.style.transform = 'translate(-50%, -50%) scale(1)';
-        });
-    });
+        }
+    }
+    
+    // Initial setup
+    addCursorEffects();
+    
+    // Re-run when new elements are added (like music toggle)
+    setTimeout(addCursorEffects, 100);
+    setTimeout(addCursorEffects, 2500); // After Spotify player shows
 });
 
 /*=============== SHOW SCROLL UP ===============*/ 
@@ -163,38 +183,115 @@ document.addEventListener('DOMContentLoaded', () => {
   setTimeout(typeEffect, 1000); // Start after 1 second
 });
 
-/*=============== TIMELINE ANIMATION ===============*/
-function animateTimeline() {
-  const timelineItems = document.querySelectorAll('.timeline__item');
-  
-  // Check if element is in viewport
-  const isInViewport = (element) => {
-    const rect = element.getBoundingClientRect();
-    return (
-      rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
-      rect.bottom >= 0
-    );
-  };
-  
-  // Show timeline items when they enter the viewport
-  const showTimelineItems = () => {
-    timelineItems.forEach(item => {
-      if (isInViewport(item)) {
-        item.classList.add('show-item');
+/*=============== MOUSE TRAIL EFFECT ===============*/
+class MouseTrailEffect {
+  constructor() {
+    this.container = document.querySelector('.mouse-trail-container');
+    this.particles = [];
+    this.lastMousePos = { x: 0, y: 0 };
+    this.isMouseMoving = false;
+    this.init();
+  }
+
+  init() {
+    if (!this.container) return;
+    
+    document.addEventListener('mousemove', (e) => this.handleMouseMove(e));
+    document.addEventListener('click', (e) => {
+      // Don't create explosion on interactive elements
+      if (!e.target.closest('button, a, input, textarea, select, .music-toggle, .player-container')) {
+        this.createExplosion(e);
       }
     });
-  };
-  
-  // Initial check on page load
-  showTimelineItems();
-  
-  // Check on scroll
-  window.addEventListener('scroll', showTimelineItems);
+    
+    // Clean up particles periodically
+    setInterval(() => this.cleanupParticles(), 100);
+  }
+
+  handleMouseMove(e) {
+    const { clientX: x, clientY: y } = e;
+    
+    // Don't create trail particles near interactive elements
+    if (e.target.closest('button, a, input, textarea, select, .music-toggle, .player-container')) {
+      this.lastMousePos = { x, y };
+      return;
+    }
+    
+    // Only create trail if mouse moved significantly
+    const distance = Math.sqrt(
+      Math.pow(x - this.lastMousePos.x, 2) + Math.pow(y - this.lastMousePos.y, 2)
+    );
+    
+    if (distance > 5) {
+      this.createTrailParticle(x, y);
+      this.lastMousePos = { x, y };
+    }
+  }
+
+  createTrailParticle(x, y) {
+    const sizes = ['small', 'medium', 'large'];
+    const size = sizes[Math.floor(Math.random() * sizes.length)];
+    
+    const particle = document.createElement('div');
+    particle.className = `trail-particle ${size}`;
+    
+    // Add some randomness to position
+    const offsetX = (Math.random() - 0.5) * 10;
+    const offsetY = (Math.random() - 0.5) * 10;
+    
+    particle.style.left = (x + offsetX) + 'px';
+    particle.style.top = (y + offsetY) + 'px';
+    
+    this.container.appendChild(particle);
+    this.particles.push({ element: particle, timestamp: Date.now() });
+  }
+
+  createExplosion(e) {
+    const { clientX: x, clientY: y } = e;
+    const particleCount = 8;
+    
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'explosion-particle spark';
+      
+      // Calculate explosion direction
+      const angle = (i / particleCount) * Math.PI * 2;
+      const distance = 30 + Math.random() * 20;
+      const finalX = x + Math.cos(angle) * distance;
+      const finalY = y + Math.sin(angle) * distance;
+      
+      particle.style.left = x + 'px';
+      particle.style.top = y + 'px';
+      
+      this.container.appendChild(particle);
+      
+      // Animate to final position
+      setTimeout(() => {
+        particle.style.transform = `translate(${finalX - x}px, ${finalY - y}px)`;
+      }, 10);
+      
+      this.particles.push({ element: particle, timestamp: Date.now() });
+    }
+  }
+
+  cleanupParticles() {
+    const now = Date.now();
+    this.particles = this.particles.filter(particle => {
+      const age = now - particle.timestamp;
+      if (age > 1000) { // Remove particles older than 1 second
+        if (particle.element.parentNode) {
+          particle.element.parentNode.removeChild(particle.element);
+        }
+        return false;
+      }
+      return true;
+    });
+  }
 }
 
-// Initialize timeline animations when the page loads
+// Initialize mouse trail effect
 document.addEventListener('DOMContentLoaded', () => {
-  animateTimeline();
+  new MouseTrailEffect();
 });
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
@@ -320,13 +417,41 @@ window.addEventListener('scroll', function() {
 
 /*=============== SPOTIFY PLAYER ===============*/
 document.addEventListener('DOMContentLoaded', () => {
+    const spotifyPlayer = document.getElementById('spotify-player');
+    const musicToggle = document.getElementById('music-toggle');
+    const closeBtn = document.getElementById('player-close');
+
     // Show Spotify player after a short delay
     setTimeout(() => {
-        const spotifyPlayer = document.getElementById('spotify-player')
         if (spotifyPlayer) {
-            spotifyPlayer.style.opacity = '1';
+            spotifyPlayer.classList.add('show');
         }
-    }, 2000) // Show after 2 seconds
+    }, 2000);
+
+    // Handle close button
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            if (spotifyPlayer) {
+                spotifyPlayer.classList.remove('show');
+                // Show music toggle button after player is hidden
+                setTimeout(() => {
+                    if (musicToggle) {
+                        musicToggle.classList.add('show');
+                    }
+                }, 300);
+            }
+        });
+    }
+
+    // Handle music toggle button
+    if (musicToggle) {
+        musicToggle.addEventListener('click', () => {
+            if (spotifyPlayer) {
+                spotifyPlayer.classList.add('show');
+                musicToggle.classList.remove('show');
+            }
+        });
+    }
 })
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
