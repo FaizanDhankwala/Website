@@ -343,22 +343,113 @@ a, button, input, textarea, select, .swiper-button-prev, .swiper-button-next, .s
   .nav__menu {
     position: fixed;
     top: -100%;
-    left: 0;
-    background-color: hsla(0, 0%, 0%, .75);
-    width: 100%;
-    padding-block: 1.8rem 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    width: 90%;
+    max-width: 400px;
+    height: auto;
+    padding: 2rem 1.5rem;
     text-align: center;
-    backdrop-filter: blur(8px);
-    transition: top .4s;
+    backdrop-filter: blur(15px);
+    transition: top .4s ease;
+    z-index: var(--z-fixed);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 0 0 1rem 1rem;
+    margin-top: 4rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
   }
   
-  .nav__menu .nav__link-button {
-    display: inline-block;
-    background-color: var(--black-color);
-    color: var(--white-color) !important;
-    padding: 0.75rem 1.25rem;
+  .nav__menu .nav__title {
+    font-size: var(--small-font-size);
+    margin-bottom: 1rem;
+    opacity: 0.8;
+    color: var(--first-color) !important;
+  }
+  
+  .nav__menu .nav__name {
+    font-size: var(--h2-font-size);
+    margin-bottom: 1.5rem;
+    color: var(--first-color) !important;
+    text-shadow: none;
+    font-weight: var(--font-semi-bold);
+  }
+  
+  .nav__list {
+    row-gap: 1rem;
+  }
+  
+  .nav__menu .nav__list .nav__link {
+    font-size: var(--normal-font-size);
+    padding: 0.75rem 1rem;
     border-radius: 0.5rem;
-    margin-top: 0.5rem;
+    transition: all .3s ease;
+    position: relative;
+    overflow: hidden;
+    display: block;
+    color: var(--first-color) !important;
+    font-weight: var(--font-medium);
+  }
+  
+  .nav__menu .nav__list .nav__link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--first-color);
+    opacity: 0.9;
+    transition: left .3s ease;
+  }
+  
+
+  
+  .nav__menu .nav__list .nav__link-button {
+    display: inline-block;
+    background: var(--first-color);
+    color: #ffffff !important;
+    padding: 0.75rem 1.5rem;
+    border-radius: 1.5rem;
+    margin: 0.5rem 0.25rem;
+    border: 2px solid var(--first-color);
+    backdrop-filter: blur(5px);
+    transition: all .3s ease;
+    font-weight: var(--font-semi-bold);
+    font-size: var(--small-font-size);
+  }
+  
+
+  
+  .nav__close {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s ease;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: var(--first-color);
+  }
+  
+  .nav__close:hover {
+    background: var(--first-color);
+    color: var(--white-color) !important;
+    transform: rotate(90deg);
+  }
+  
+  .nav__toggle {
+    border-radius: 0.5rem;
+    transition: all .3s ease;
+  }
+  
+  .nav__toggle:hover {
+    background-color: var(--first-color);
+    transform: scale(1.1);
   }
 }
 
@@ -441,7 +532,7 @@ a, button, input, textarea, select, .swiper-button-prev, .swiper-button-next, .s
 
 /* Show menu */
 .show-menu {
-  top: 0;
+  top: 4rem;
 }
 
 /* Add shadow header */
@@ -1387,6 +1478,23 @@ a, button, input, textarea, select, .swiper-button-prev, .swiper-button-next, .s
   overflow: hidden;
 }
 
+/* Hide mouse effects on mobile devices */
+@media (hover: none) and (pointer: coarse) {
+  .mouse-trail-container,
+  .cursor-outer,
+  .cursor-inner {
+    display: none !important;
+  }
+  
+  html {
+    cursor: auto !important;
+  }
+  
+  a, button, input, textarea, select, .swiper-button-prev, .swiper-button-next, .swiper-pagination {
+    cursor: pointer !important;
+  }
+}
+
 .trail-particle {
   position: absolute;
   border-radius: 50%;
@@ -1501,6 +1609,47 @@ a, button, input, textarea, select, .swiper-button-prev, .swiper-button-next, .s
   width: 320px;
   overflow: hidden;
   transition: all 0.3s ease;
+}
+
+/* Mobile optimizations for Spotify player */
+@media screen and (max-width: 768px) {
+  .spotify-player {
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+    right: 1rem;
+  }
+  
+  .player-container {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  
+  .player-header {
+    padding: 1rem;
+  }
+  
+  .player-close {
+    padding: 0.5rem;
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .spotify-player {
+    bottom: 0.5rem;
+    left: 0.5rem;
+    right: 0.5rem;
+  }
+  
+  .player-container {
+    border-radius: 12px;
+  }
+  
+  .player-container iframe {
+    border-radius: 0 0 12px 12px;
+  }
 }
 
 .player-container iframe {
@@ -1955,10 +2104,64 @@ a, button, input, textarea, select, .swiper-button-prev, .swiper-button-next, .s
 }
 
 /*=============== BREAKPOINTS ===============*/
+/* For extra small devices */
+@media screen and (max-width: 480px) {
+  .container {
+    margin-inline: 1rem;
+  }
+  
+  .nav__logo-name {
+    font-size: var(--small-font-size);
+  }
+  
+  .home__name {
+    font-size: var(--h1-font-size);
+    text-align: center;
+    padding: 0 0.5rem;
+  }
+  
+  .section__title-1,
+  .section__title-2 {
+    font-size: var(--h2-font-size);
+  }
+  
+  .section {
+    padding-block: 3rem 1.5rem;
+  }
+  
+  .music-toggle {
+    width: 45px;
+    height: 45px;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 1.25rem;
+  }
+  
+  .spotify-player {
+    width: 95%;
+    max-width: none;
+  }
+  
+  .home__container {
+    padding-top: 1rem;
+    gap: 1rem;
+  }
+  
+  .about__container,
+  .projects__container {
+    gap: 1rem;
+  }
+  
+  .button {
+    padding: 0.75rem 1.5rem;
+    font-size: var(--small-font-size);
+  }
+}
+
 /* For small devices */
 @media screen and (max-width: 340px) {
   .container {
-    margin-inline: 1rem;
+    margin-inline: 0.75rem;
   }
 
   .home__image {
@@ -1983,6 +2186,10 @@ a, button, input, textarea, select, .swiper-button-prev, .swiper-button-next, .s
   .nav__link-button {
     padding: 0.5rem 0.75rem;
     font-size: var(--smaller-font-size);
+  }
+  
+  .nav__logo-name {
+    display: none;
   }
 }
 
